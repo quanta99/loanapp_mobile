@@ -2,7 +2,108 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:loanapp_mobile/widgets/custom_expansion_tile.dart';
 
-class ProfileMenu extends StatelessWidget {
+class ProfileMenu extends StatefulWidget {
+  @override
+  State<ProfileMenu> createState() => _ProfileMenuState();
+}
+
+class _ProfileMenuState extends State<ProfileMenu> {
+  var isLastElement = true;
+  final expansionItems = [
+    ExpansionTile(
+        iconColor: const Color(0xFF214389),
+        imgSrc: 'assets/svg/profile.svg',
+        tlRadius: 8.0,
+        trRadius: 8.0,
+        trailing: Icon(Icons.navigate_next_outlined),
+        title: Text("Thông tin cá nhân",
+            style: TextStyle(fontSize: 14.0, fontWeight: FontWeight.w400)),
+        children: []),
+    ExpansionTile(
+        iconColor: const Color(0xFF214389),
+        imgSrc: 'assets/svg/otp.svg',
+        trailing: Icon(
+          Icons.navigate_next_outlined,
+        ),
+        title: Text("Smart OTP",
+            style: TextStyle(fontSize: 14.0, fontWeight: FontWeight.w400)),
+        children: []),
+    ExpansionTile(
+        iconColor: const Color(0xFF214389),
+        imgSrc: 'assets/svg/faq.svg',
+        trailing: const Icon(
+          Icons.navigate_next_outlined,
+        ),
+        title: const Text(
+          "Trợ giúp",
+          style: TextStyle(fontSize: 14.0, fontWeight: FontWeight.w400),
+        ),
+        children: [
+          CustomExpansionTile(
+            marginLeft: 31,
+            tileColor: const Color(0xFFFAFAFA),
+            imgSrc: 'assets/svg/help.svg',
+            trailing: const Icon(
+              Icons.navigate_next_outlined,
+            ),
+            title: const Text(
+              "Câu hỏi thường gặp",
+              style: TextStyle(fontSize: 14.0, fontWeight: FontWeight.w400),
+            ),
+          ),
+          CustomExpansionTile(
+            marginLeft: 31,
+            tileColor: const Color(0xFFFAFAFA),
+            imgSrc: 'assets/svg/hotline.svg',
+            trailing: const Icon(
+              Icons.navigate_next_outlined,
+            ),
+            title: const Text(
+              "Thông tin liên hệ",
+              style: TextStyle(fontSize: 14.0, fontWeight: FontWeight.w400),
+            ),
+          ),
+          CustomExpansionTile(
+            marginLeft: 31,
+            tileColor: const Color(0xFFFAFAFA),
+            imgSrc: 'assets/svg/instruction.svg',
+            trailing: const Icon(
+              Icons.navigate_next_outlined,
+            ),
+            title: const Text(
+              "Hướng dẫn sử dụng",
+              style: TextStyle(fontSize: 14.0, fontWeight: FontWeight.w400),
+            ),
+          ),
+        ]),
+    ExpansionTile(
+      iconColor: const Color(0xFF214389),
+      imgSrc: 'assets/svg/document.svg',
+      trailing: Icon(
+        Icons.navigate_next_outlined,
+      ),
+      title: Text(
+        "Điều khoản, Điều kiện",
+        style: TextStyle(fontSize: 14.0, fontWeight: FontWeight.w400),
+      ),
+      children: [],
+    )
+  ];
+
+  List<Widget> _buildExpansionTiles() {
+    return expansionItems
+        .map((ExpansionTile tile) => CustomExpansionTile(
+              title: tile.title,
+              imgSrc: tile.imgSrc,
+              iconColor: tile.iconColor,
+              trailing: tile.trailing,
+              tlRadius: tile.tlRadius,
+              trRadius: tile.trRadius,
+              children: tile.children,
+            ))
+        .toList();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -12,99 +113,18 @@ class ProfileMenu extends StatelessWidget {
           SizedBox(height: 20.0),
           Column(
             children: [
-              CustomExpansionTile(
-                iconColor: const Color(0xFF214389),
-                imgSrc: 'assets/svg/profile.svg',
-                tlRadius: 8.0,
-                trRadius: 8.0,
-                trailing: Icon(
-                  Icons.navigate_next_outlined,
-                ),
-                title: Text(
-                  "Thông tin cá nhân",
-                  style: TextStyle(fontSize: 14.0, fontWeight: FontWeight.w400),
-                ),
-              ),
-              CustomExpansionTile(
-                iconColor: const Color(0xFF214389),
-                imgSrc: 'assets/svg/otp.svg',
-                trailing: Icon(
-                  Icons.navigate_next_outlined,
-                ),
-                title: Text(
-                  "Smart OTP",
-                  style: TextStyle(fontSize: 14.0, fontWeight: FontWeight.w400),
-                ),
-              ),
-              CustomExpansionTile(
-                iconColor: const Color(0xFF214389),
-                imgSrc: 'assets/svg/faq.svg',
-                trailing: const Icon(
-                  Icons.navigate_next_outlined,
-                ),
-                title: const Text(
-                  "Trợ giúp",
-                  style: TextStyle(fontSize: 14.0, fontWeight: FontWeight.w400),
-                ),
-                children: [
-                  CustomExpansionTile(
-                    marginLeft: 31,
-                    tileColor: const Color(0xFFFAFAFA),
-                    imgSrc: 'assets/svg/help.svg',
-                    trailing: const Icon(
-                      Icons.navigate_next_outlined,
-                    ),
-                    title: const Text(
-                      "Câu hỏi thường gặp",
-                      style: TextStyle(
-                          fontSize: 14.0, fontWeight: FontWeight.w400),
-                    ),
-                  ),
-                  CustomExpansionTile(
-                    marginLeft: 31,
-                    tileColor: const Color(0xFFFAFAFA),
-                    imgSrc: 'assets/svg/hotline.svg',
-                    trailing: const Icon(
-                      Icons.navigate_next_outlined,
-                    ),
-                    title: const Text(
-                      "Thông tin liên hệ",
-                      style: TextStyle(
-                          fontSize: 14.0, fontWeight: FontWeight.w400),
-                    ),
-                  ),
-                  CustomExpansionTile(
-                    marginLeft: 31,
-                    tileColor: const Color(0xFFFAFAFA),
-                    imgSrc: 'assets/svg/instruction.svg',
-                    trailing: const Icon(
-                      Icons.navigate_next_outlined,
-                    ),
-                    title: const Text(
-                      "Hướng dẫn sử dụng",
-                      style: TextStyle(
-                          fontSize: 14.0, fontWeight: FontWeight.w400),
-                    ),
-                  ),
-                ],
-              ),
-              CustomExpansionTile(
-                iconColor: const Color(0xFF214389),
-                imgSrc: 'assets/svg/document.svg',
-                trailing: Icon(
-                  Icons.navigate_next_outlined,
-                ),
-                title: Text(
-                  "Điều khoản, Điều kiện",
-                  style: TextStyle(fontSize: 14.0, fontWeight: FontWeight.w400),
-                ),
+              Wrap(
+                children: _buildExpansionTiles(),
               ),
               CustomExpansionTile(
                 iconColor: const Color(0xFF214389),
                 borderBottomColor: Colors.transparent,
-                blRadius: 8.0,
-                brRadius: 8.0,
+                blRadius: isLastElement ? 8.0 : 0.0,
+                brRadius: isLastElement ? 8.0 : 0.0,
                 imgSrc: 'assets/svg/setting.svg',
+                onExpansionChanged: (bool expanded) {
+                  setState(() => isLastElement = !expanded);
+                },
                 trailing: Icon(
                   Icons.navigate_next_outlined,
                 ),
@@ -180,4 +200,22 @@ class ProfileMenu extends StatelessWidget {
       ),
     );
   }
+}
+
+class ExpansionTile {
+  Color iconColor;
+  String imgSrc;
+  double tlRadius;
+  double trRadius;
+  Icon trailing;
+  Text title;
+  List<Widget> children;
+  ExpansionTile(
+      {required this.iconColor,
+      required this.imgSrc,
+      this.tlRadius = 0.0,
+      this.trRadius = 0.0,
+      required this.trailing,
+      required this.title,
+      required this.children});
 }
