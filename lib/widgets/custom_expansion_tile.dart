@@ -47,6 +47,7 @@ class CustomExpansionTile extends StatefulWidget {
   double trRadius;
   double blRadius;
   double brRadius;
+  Function onTap;
 
   /// Creates a single-line [ListTile] with an expansion arrow icon that expands or collapses
   /// the tile to reveal or hide the [children]. The [initiallyExpanded] property must
@@ -80,6 +81,7 @@ class CustomExpansionTile extends StatefulWidget {
     this.trRadius = 0,
     this.blRadius = 0,
     this.brRadius = 0,
+    required this.onTap,
   })  : assert(initiallyExpanded != null),
         assert(maintainState != null),
         assert(
@@ -265,6 +267,7 @@ class _CustomExpansionTileState extends State<CustomExpansionTile>
   }
 
   void _handleTap() {
+    widget.onTap;
     setState(() {
       _isExpanded = !_isExpanded;
       if (_isExpanded) {

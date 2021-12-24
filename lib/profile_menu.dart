@@ -11,6 +11,7 @@ class _ProfileMenuState extends State<ProfileMenu> {
   var isLastElement = true;
   final expansionItems = [
     ExpansionTile(
+        onTap: () {},
         iconColor: const Color(0xFF214389),
         imgSrc: 'assets/svg/profile.svg',
         tlRadius: 8.0,
@@ -20,6 +21,7 @@ class _ProfileMenuState extends State<ProfileMenu> {
             style: TextStyle(fontSize: 14.0, fontWeight: FontWeight.w400)),
         children: []),
     ExpansionTile(
+        onTap: () {},
         iconColor: const Color(0xFF214389),
         imgSrc: 'assets/svg/otp.svg',
         trailing: Icon(
@@ -29,6 +31,7 @@ class _ProfileMenuState extends State<ProfileMenu> {
             style: TextStyle(fontSize: 14.0, fontWeight: FontWeight.w400)),
         children: []),
     ExpansionTile(
+        onTap: () {},
         iconColor: const Color(0xFF214389),
         imgSrc: 'assets/svg/faq.svg',
         trailing: const Icon(
@@ -40,6 +43,7 @@ class _ProfileMenuState extends State<ProfileMenu> {
         ),
         children: [
           CustomExpansionTile(
+            onTap: () {},
             marginLeft: 31,
             tileColor: const Color(0xFFFAFAFA),
             imgSrc: 'assets/svg/help.svg',
@@ -52,6 +56,7 @@ class _ProfileMenuState extends State<ProfileMenu> {
             ),
           ),
           CustomExpansionTile(
+            onTap: () {},
             marginLeft: 31,
             tileColor: const Color(0xFFFAFAFA),
             imgSrc: 'assets/svg/hotline.svg',
@@ -64,6 +69,7 @@ class _ProfileMenuState extends State<ProfileMenu> {
             ),
           ),
           CustomExpansionTile(
+            onTap: () {},
             marginLeft: 31,
             tileColor: const Color(0xFFFAFAFA),
             imgSrc: 'assets/svg/instruction.svg',
@@ -77,6 +83,7 @@ class _ProfileMenuState extends State<ProfileMenu> {
           ),
         ]),
     ExpansionTile(
+      onTap: () {},
       iconColor: const Color(0xFF214389),
       imgSrc: 'assets/svg/document.svg',
       trailing: Icon(
@@ -100,6 +107,7 @@ class _ProfileMenuState extends State<ProfileMenu> {
               tlRadius: tile.tlRadius,
               trRadius: tile.trRadius,
               children: tile.children,
+              onTap: tile.onTap,
             ))
         .toList();
   }
@@ -117,6 +125,7 @@ class _ProfileMenuState extends State<ProfileMenu> {
                 children: _buildExpansionTiles(),
               ),
               CustomExpansionTile(
+                onTap: () {},
                 iconColor: const Color(0xFF214389),
                 borderBottomColor: Colors.transparent,
                 blRadius: isLastElement ? 8.0 : 0.0,
@@ -134,6 +143,7 @@ class _ProfileMenuState extends State<ProfileMenu> {
                 ),
                 children: [
                   CustomExpansionTile(
+                    onTap: () {},
                     marginLeft: 31,
                     tileColor: const Color(0xFFFAFAFA),
                     imgSrc: 'assets/svg/face_id.svg',
@@ -147,6 +157,7 @@ class _ProfileMenuState extends State<ProfileMenu> {
                     ),
                   ),
                   CustomExpansionTile(
+                    onTap: () {},
                     marginLeft: 31,
                     tileColor: const Color(0xFFFAFAFA),
                     imgSrc: 'assets/svg/lock.svg',
@@ -160,6 +171,7 @@ class _ProfileMenuState extends State<ProfileMenu> {
                     ),
                   ),
                   CustomExpansionTile(
+                    onTap: () {},
                     blRadius: 8.0,
                     brRadius: 8.0,
                     borderBottomColor: Colors.transparent,
@@ -181,6 +193,7 @@ class _ProfileMenuState extends State<ProfileMenu> {
           ),
           SizedBox(height: 12.0),
           CustomExpansionTile(
+            onTap: () {},
             iconColor: const Color(0xFF214389),
             imgSrc: 'assets/svg/sign_out.svg',
             borderBottomColor: Colors.transparent,
@@ -209,6 +222,7 @@ class ExpansionTile {
   double trRadius;
   Icon trailing;
   Text title;
+  Function onTap;
   List<Widget> children;
   ExpansionTile(
       {required this.iconColor,
@@ -217,5 +231,6 @@ class ExpansionTile {
       this.trRadius = 0.0,
       required this.trailing,
       required this.title,
-      required this.children});
+      required this.children,
+      required this.onTap});
 }
