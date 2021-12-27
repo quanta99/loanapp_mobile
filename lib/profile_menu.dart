@@ -11,6 +11,7 @@ class _ProfileMenuState extends State<ProfileMenu> {
   var isLastElement = true;
   final expansionItems = [
     ExpansionTile(
+        path: '1',
         iconColor: const Color(0xFF214389),
         imgSrc: 'assets/svg/profile.svg',
         tlRadius: 8.0,
@@ -20,6 +21,7 @@ class _ProfileMenuState extends State<ProfileMenu> {
             style: TextStyle(fontSize: 14.0, fontWeight: FontWeight.w400)),
         children: []),
     ExpansionTile(
+        path: '2',
         iconColor: const Color(0xFF214389),
         imgSrc: 'assets/svg/otp.svg',
         trailing: Icon(
@@ -29,6 +31,7 @@ class _ProfileMenuState extends State<ProfileMenu> {
             style: TextStyle(fontSize: 14.0, fontWeight: FontWeight.w400)),
         children: []),
     ExpansionTile(
+        path: '3',
         iconColor: const Color(0xFF214389),
         imgSrc: 'assets/svg/faq.svg',
         trailing: const Icon(
@@ -80,6 +83,7 @@ class _ProfileMenuState extends State<ProfileMenu> {
           ),
         ]),
     ExpansionTile(
+      path: '4',
       iconColor: const Color(0xFF214389),
       imgSrc: 'assets/svg/document.svg',
       trailing: Icon(
@@ -97,7 +101,7 @@ class _ProfileMenuState extends State<ProfileMenu> {
     return expansionItems
         .map((tile) => CustomExpansionTile(
               onTap: () {
-                print(tile.imgSrc);
+                print(tile.path);
               },
               title: tile.title,
               imgSrc: tile.imgSrc,
@@ -220,6 +224,7 @@ class _ProfileMenuState extends State<ProfileMenu> {
 class ExpansionTile {
   Color iconColor;
   String imgSrc;
+  String path;
   double tlRadius;
   double trRadius;
   Icon trailing;
@@ -229,6 +234,7 @@ class ExpansionTile {
   ExpansionTile(
       {required this.iconColor,
       required this.imgSrc,
+      required this.path,
       this.tlRadius = 0.0,
       this.trRadius = 0.0,
       required this.trailing,
