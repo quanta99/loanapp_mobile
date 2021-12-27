@@ -267,7 +267,7 @@ class _CustomExpansionTileState extends State<CustomExpansionTile>
   }
 
   void _handleTap() {
-    widget.onTap;
+    widget.onTap();
     setState(() {
       _isExpanded = !_isExpanded;
       if (_isExpanded) {
